@@ -901,11 +901,59 @@ section { padding: 100px 0; }
 .crm-bar-track { height: 6px; background: #f0ece4; border-radius: 3px; overflow: hidden; }
 .crm-bar-fill { height: 100%; border-radius: 3px; }
 
+/* Automation flow mockup */
+.auto-mockup-inner { background: #fff; border-radius: 3px; position: relative; height: 460px; padding: 10px; overflow: hidden; }
+.auto-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.auto-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 19px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+}
+.auto-node.small { width: 42px; height: 42px; font-size: 15px; }
+.auto-label {
+  position: absolute;
+  transform: translate(-50%, 0);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--navy);
+  text-align: center;
+  width: 110px;
+  line-height: 1.3;
+}
+.auto-label span { display: block; font-weight: 400; color: #999; font-size: 9px; margin-top: 1px; }
+.auto-legend { display: flex; gap: 16px; flex-wrap: wrap; position: absolute; bottom: 8px; left: 10px; }
+
+/* Travel itinerary mockup */
+.itin-mockup-inner { background: #fff; border-radius: 3px; padding: 18px 22px; }
+.itin-trip-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--cream-dark); }
+.itin-trip-title { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 600; color: var(--navy); }
+.itin-trip-dates { font-size: 11px; color: var(--text-muted); letter-spacing: 0.3px; }
+.itin-day { margin-bottom: 16px; }
+.itin-day-head { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
+.itin-day-num { background: var(--navy); color: #fff; font-size: 10px; font-weight: 700; padding: 3px 9px; border-radius: 10px; letter-spacing: 0.3px; }
+.itin-day-date { font-size: 12px; color: var(--text-muted); font-weight: 500; }
+.itin-item { display: grid; grid-template-columns: 56px 26px 1fr auto; align-items: center; gap: 10px; padding: 7px 0 7px 14px; border-left: 2px solid var(--cream-dark); margin-left: 8px; }
+.itin-time { font-size: 11px; color: var(--text-muted); font-weight: 600; }
+.itin-icon { font-size: 15px; text-align: center; }
+.itin-info-title { font-size: 12.5px; color: var(--navy); font-weight: 600; }
+.itin-info-loc { font-size: 11px; color: #999; margin-top: 1px; }
+.itin-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.3px; text-transform: uppercase; padding: 3px 9px; border-radius: 8px; white-space: nowrap; }
+
 @media (max-width: 860px) {
   .cal-days-row, .cal-grid-row { grid-template-columns: 40px repeat(5, 1fr); }
   .crm-mockup-inner { grid-template-columns: 1fr; }
   .inbox-mockup-inner { grid-template-columns: 110px 1fr; }
   .inbox-row { grid-template-columns: 70px 1fr auto; }
+  .itin-item { grid-template-columns: 44px 22px 1fr; }
+  .itin-item .itin-tag { display: none; }
+  .auto-mockup-inner { height: 560px; }
 }
 
 /* ── TESTIMONIALS ── */
@@ -1823,6 +1871,202 @@ footer p {
                   <div class="crm-bar-track"><div class="crm-bar-fill" style="width:100%;background:#22c55e;"></div></div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AUTOMATION / WORKFLOW BUILDS -->
+      <div class="work-card fade-up">
+        <div class="work-card-info">
+          <div>
+            <div class="work-card-label">Automation &amp; Workflow Builds</div>
+            <div class="work-card-title">End-to-end order processing, automated</div>
+            <div class="work-card-desc">Built in Make.com: a single trigger routes every order by status, then handles its own logging, payment tracking, and customer + admin notifications — no manual follow-up required.</div>
+          </div>
+          <div class="work-result-badges">
+            <span class="work-badge">✓ 5 branching paths, 1 trigger</span>
+            <span class="work-badge">✓ Zero manual emails sent</span>
+          </div>
+        </div>
+        <div class="work-mockup-frame">
+          <div class="mockup-chrome">
+            <div class="mockup-dot" style="background:#ec6a5e;"></div>
+            <div class="mockup-dot" style="background:#f4bd4f;"></div>
+            <div class="mockup-dot" style="background:#61c454;"></div>
+            <div class="mockup-chrome-title">make.com — Order Processing Scenario</div>
+          </div>
+          <div class="mockup-body">
+            <div class="auto-mockup-inner">
+              <svg class="auto-svg" viewBox="0 0 1000 460" preserveAspectRatio="none">
+                <g stroke="#c9a84c" stroke-opacity="0.55" stroke-width="2" stroke-dasharray="1 7" stroke-linecap="round" fill="none">
+                  <path d="M50,230 L160,230"></path>
+                  <path d="M160,230 L270,230"></path>
+                  <path d="M270,230 L430,70"></path>
+                  <path d="M270,230 L500,160"></path>
+                  <path d="M270,230 L500,230"></path>
+                  <path d="M270,230 L430,320"></path>
+                  <path d="M270,230 L500,400"></path>
+                  <path d="M430,70 L600,70"></path>
+                  <path d="M430,320 L560,320"></path>
+                  <path d="M560,320 L690,320"></path>
+                  <path d="M690,320 L810,320"></path>
+                  <path d="M810,320 L930,320"></path>
+                </g>
+              </svg>
+
+              <div class="auto-node" style="left:5%;top:230px;background:var(--gold);">⚡</div>
+              <div class="auto-label" style="left:5%;top:262px;width:80px;">Order Events<span>Watch Events</span></div>
+
+              <div class="auto-node" style="left:16%;top:230px;background:var(--navy);font-size:11px;">SET</div>
+              <div class="auto-label" style="left:16%;top:262px;width:80px;">Set Variables</div>
+
+              <div class="auto-node" style="left:27%;top:230px;background:var(--crimson);font-size:12px;">RT</div>
+              <div class="auto-label" style="left:27%;top:262px;width:80px;">Router<span>by order status</span></div>
+
+              <div class="auto-node" style="left:43%;top:70px;background:#0f9d58;font-size:12px;">GS</div>
+              <div class="auto-label" style="left:43%;top:102px;width:80px;">Log Order</div>
+
+              <div class="auto-node" style="left:60%;top:70px;background:#d14836;font-size:12px;">GM</div>
+              <div class="auto-label" style="left:60%;top:102px;width:80px;">Notify Admin</div>
+
+              <div class="auto-node" style="left:50%;top:160px;background:#d14836;font-size:12px;">GM</div>
+              <div class="auto-label" style="left:50%;top:192px;width:80px;">Delivered</div>
+
+              <div class="auto-node" style="left:50%;top:230px;background:#d14836;font-size:12px;">GM</div>
+              <div class="auto-label" style="left:50%;top:262px;width:80px;">Cancelled</div>
+
+              <div class="auto-node" style="left:43%;top:320px;background:#0f9d58;font-size:12px;">GS</div>
+              <div class="auto-label" style="left:43%;top:352px;width:74px;">Find Row</div>
+
+              <div class="auto-node" style="left:56%;top:320px;background:#0f9d58;font-size:12px;">GS</div>
+              <div class="auto-label" style="left:56%;top:352px;width:74px;">Mark Paid</div>
+
+              <div class="auto-node" style="left:69%;top:320px;background:#d14836;font-size:12px;">GM</div>
+              <div class="auto-label" style="left:69%;top:352px;width:74px;">Admin: Paid</div>
+
+              <div class="auto-node" style="left:81%;top:320px;background:#d14836;font-size:12px;">GM</div>
+              <div class="auto-label" style="left:81%;top:352px;width:78px;">Payment Received</div>
+
+              <div class="auto-node" style="left:93%;top:320px;background:#d14836;font-size:12px;">GM</div>
+              <div class="auto-label" style="left:93%;top:352px;width:74px;">Confirmed</div>
+
+              <div class="auto-node" style="left:50%;top:400px;background:#d14836;font-size:12px;">GM</div>
+              <div class="auto-label" style="left:50%;top:432px;width:80px;">Payment Link</div>
+
+              <div class="auto-legend">
+                <div class="cal-legend-item"><span class="cal-legend-swatch" style="background:var(--crimson);border-radius:50%;"></span>Trigger &amp; Logic</div>
+                <div class="cal-legend-item"><span class="cal-legend-swatch" style="background:#0f9d58;border-radius:50%;"></span>Google Sheets</div>
+                <div class="cal-legend-item"><span class="cal-legend-swatch" style="background:#d14836;border-radius:50%;"></span>Gmail</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRAVEL ARRANGEMENTS -->
+      <div class="work-card fade-up">
+        <div class="work-card-info">
+          <div>
+            <div class="work-card-label">Travel Arrangements</div>
+            <div class="work-card-title">Full itineraries, booked and buffered</div>
+            <div class="work-card-desc">Flights, transfers, hotels, and reservations laid out day by day — with realistic gaps between connections so nothing is ever rushed or missed.</div>
+          </div>
+          <div class="work-result-badges">
+            <span class="work-badge">✓ All confirmations attached</span>
+            <span class="work-badge">✓ Buffer built into every transfer</span>
+          </div>
+        </div>
+        <div class="work-mockup-frame">
+          <div class="mockup-chrome">
+            <div class="mockup-dot" style="background:#ec6a5e;"></div>
+            <div class="mockup-dot" style="background:#f4bd4f;"></div>
+            <div class="mockup-dot" style="background:#61c454;"></div>
+            <div class="mockup-chrome-title">itinerary.app — Bali Escape</div>
+          </div>
+          <div class="mockup-body">
+            <div class="itin-mockup-inner">
+              <div class="itin-trip-head">
+                <div class="itin-trip-title">Bali Escape — 5 Days, 4 Nights</div>
+                <div class="itin-trip-dates">Jun 10 – Jun 14</div>
+              </div>
+
+              <div class="itin-day">
+                <div class="itin-day-head"><span class="itin-day-num">DAY 1</span><span class="itin-day-date">Tue, Jun 10 — Arrival</span></div>
+                <div class="itin-item">
+                  <div class="itin-time">9:40 AM</div>
+                  <div class="itin-icon">✈️</div>
+                  <div><div class="itin-info-title">Flight MNL → DPS, Garuda GA876</div><div class="itin-info-loc">Ninoy Aquino Int'l → Ngurah Rai Int'l</div></div>
+                  <div class="itin-tag" style="background:rgba(15,22,38,0.08);color:var(--navy);">Flight</div>
+                </div>
+                <div class="itin-item">
+                  <div class="itin-time">1:15 PM</div>
+                  <div class="itin-icon">🚗</div>
+                  <div><div class="itin-info-title">Private transfer to Ubud</div><div class="itin-info-loc">~1 hr drive, driver pre-booked</div></div>
+                  <div class="itin-tag" style="background:rgba(201,168,76,0.18);color:#a3863a;">Transfer</div>
+                </div>
+                <div class="itin-item">
+                  <div class="itin-time">2:30 PM</div>
+                  <div class="itin-icon">🏨</div>
+                  <div><div class="itin-info-title">Check-in: The Ubud Retreat</div><div class="itin-info-loc">Garden Villa, 3 nights</div></div>
+                  <div class="itin-tag" style="background:rgba(183,30,45,0.1);color:var(--crimson);">Hotel</div>
+                </div>
+                <div class="itin-item">
+                  <div class="itin-time">7:00 PM</div>
+                  <div class="itin-icon">🍽️</div>
+                  <div><div class="itin-info-title">Dinner reservation: Locavore</div><div class="itin-info-loc">Table for 2, confirmed</div></div>
+                  <div class="itin-tag" style="background:rgba(201,168,76,0.18);color:#a3863a;">Dining</div>
+                </div>
+              </div>
+
+              <div class="itin-day">
+                <div class="itin-day-head"><span class="itin-day-num">DAY 2</span><span class="itin-day-date">Wed, Jun 11 — Ubud</span></div>
+                <div class="itin-item">
+                  <div class="itin-time">8:00 AM</div>
+                  <div class="itin-icon">🧘</div>
+                  <div><div class="itin-info-title">Sunrise yoga + breakfast</div><div class="itin-info-loc">Onsite, included</div></div>
+                  <div class="itin-tag" style="background:rgba(15,22,38,0.06);color:#555;">Activity</div>
+                </div>
+                <div class="itin-item">
+                  <div class="itin-time">11:00 AM</div>
+                  <div class="itin-icon">🚲</div>
+                  <div><div class="itin-info-title">Tegallalang rice terrace tour</div><div class="itin-info-loc">Guided, transport included</div></div>
+                  <div class="itin-tag" style="background:rgba(15,22,38,0.06);color:#555;">Activity</div>
+                </div>
+              </div>
+
+              <div class="itin-day">
+                <div class="itin-day-head"><span class="itin-day-num">DAY 3</span><span class="itin-day-date">Thu, Jun 12 — Seminyak</span></div>
+                <div class="itin-item">
+                  <div class="itin-time">10:00 AM</div>
+                  <div class="itin-icon">🚗</div>
+                  <div><div class="itin-info-title">Transfer + checkout to Seminyak</div><div class="itin-info-loc">~1.5 hr drive</div></div>
+                  <div class="itin-tag" style="background:rgba(201,168,76,0.18);color:#a3863a;">Transfer</div>
+                </div>
+                <div class="itin-item">
+                  <div class="itin-time">6:30 PM</div>
+                  <div class="itin-icon">🌅</div>
+                  <div><div class="itin-info-title">Sunset beach club reservation</div><div class="itin-info-loc">Daybed reserved</div></div>
+                  <div class="itin-tag" style="background:rgba(15,22,38,0.06);color:#555;">Activity</div>
+                </div>
+              </div>
+
+              <div class="itin-day">
+                <div class="itin-day-head"><span class="itin-day-num">DAY 4</span><span class="itin-day-date">Fri, Jun 13 — Departure</span></div>
+                <div class="itin-item">
+                  <div class="itin-time">11:00 AM</div>
+                  <div class="itin-icon">🛎️</div>
+                  <div><div class="itin-info-title">Hotel checkout</div><div class="itin-info-loc">Late checkout confirmed</div></div>
+                  <div class="itin-tag" style="background:rgba(183,30,45,0.1);color:var(--crimson);">Hotel</div>
+                </div>
+                <div class="itin-item">
+                  <div class="itin-time">3:50 PM</div>
+                  <div class="itin-icon">✈️</div>
+                  <div><div class="itin-info-title">Flight DPS → MNL, Garuda GA877</div><div class="itin-info-loc">3 hr buffer after checkout</div></div>
+                  <div class="itin-tag" style="background:rgba(15,22,38,0.08);color:var(--navy);">Flight</div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

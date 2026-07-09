@@ -74,6 +74,75 @@ nav {
 
 .nav-links a:hover { color: var(--white); }
 
+/* ── multi-view nav: primary links pushed right, then burger ── */
+.nav-links { margin-left: auto; }
+.nav-links a.active { color: var(--white); }
+
+.nav-burger {
+  margin-left: 28px; width: 34px; height: 34px; padding: 0;
+  display: flex; flex-direction: column; justify-content: center; gap: 6px;
+  background: none; border: 0; cursor: pointer;
+}
+.nav-burger span {
+  display: block; height: 2px; width: 24px; border-radius: 2px;
+  background: var(--cream);
+  transition: transform .3s ease, opacity .2s ease;
+}
+.nav-burger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ── view switching: one section visible at a time (JS-gated for graceful fallback) ── */
+html.js section[id]:not(.is-active) { display: none !important; }
+@media (prefers-reduced-motion: no-preference) {
+  html.js section[id].is-active { animation: viewEnter .55s cubic-bezier(.2,.7,.2,1) both; }
+}
+@keyframes viewEnter { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+/* ── fullscreen hamburger overlay ── */
+.nav-overlay {
+  position: fixed; inset: 0; z-index: 200; background: var(--navy);
+  display: flex; align-items: center;
+  opacity: 0; visibility: hidden;
+  transition: opacity .4s ease, visibility .4s ease;
+}
+.nav-overlay::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+.nav-overlay.open { opacity: 1; visibility: visible; }
+.nav-overlay-inner { position: relative; z-index: 1; width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 8vw; }
+.nav-overlay-eyebrow { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--crimson); margin-bottom: 26px; }
+.nav-overlay-links { display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 2px; }
+.nav-overlay-links a {
+  display: flex; align-items: center; gap: 20px; width: auto;
+  font-family: 'Cormorant Garamond', serif; font-weight: 400;
+  font-size: clamp(26px, 4.6vw, 52px); line-height: 1.28;
+  color: var(--cream); text-decoration: none;
+  opacity: 0; transform: translateY(18px); transition: color .25s ease;
+}
+.nav-overlay.open .nav-overlay-links a { animation: ovIn .5s cubic-bezier(.2,.7,.2,1) forwards; }
+.nav-overlay-links a .ov-num { font-family: 'Outfit', sans-serif; font-size: 12px; letter-spacing: 1px; color: var(--gold); width: 30px; flex: none; }
+.nav-overlay-links a:hover, .nav-overlay-links a.active { color: var(--crimson-light); }
+.nav-overlay-foot { margin-top: 38px; font-size: 12px; letter-spacing: .5px; color: rgba(245,240,235,.5); }
+@keyframes ovIn { to { opacity: 1; transform: none; } }
+.nav-overlay.open .nav-overlay-links a:nth-child(1){animation-delay:.05s}
+.nav-overlay.open .nav-overlay-links a:nth-child(2){animation-delay:.10s}
+.nav-overlay.open .nav-overlay-links a:nth-child(3){animation-delay:.15s}
+.nav-overlay.open .nav-overlay-links a:nth-child(4){animation-delay:.20s}
+.nav-overlay.open .nav-overlay-links a:nth-child(5){animation-delay:.25s}
+.nav-overlay.open .nav-overlay-links a:nth-child(6){animation-delay:.30s}
+.nav-overlay.open .nav-overlay-links a:nth-child(7){animation-delay:.35s}
+.nav-overlay.open .nav-overlay-links a:nth-child(8){animation-delay:.40s}
+.nav-overlay.open .nav-overlay-links a:nth-child(9){animation-delay:.45s}
+.nav-overlay.open .nav-overlay-links a:nth-child(10){animation-delay:.50s}
+body.menu-open { overflow: hidden; }
+@media (prefers-reduced-motion: reduce) {
+  .nav-overlay-links a { opacity: 1; transform: none; animation: none !important; }
+}
+@media (max-width: 560px) { .nav-links { display: none; } }
+
 /* ── HERO ── */
 #home {
   min-height: 100vh;
@@ -370,6 +439,31 @@ section { padding: 100px 0; }
   text-transform: uppercase;
   color: var(--crimson);
   margin-bottom: 8px;
+}
+
+/* Ledger-style section numbering — fixed per section, matched to the menu order */
+.section-eyebrow::before {
+  content: var(--sec-num, "") "\00a0\00a0\2014\00a0\00a0";
+  color: var(--gold);
+  font-weight: 600;
+}
+#about { --sec-num: "02"; }
+#experience { --sec-num: "03"; }
+#industries { --sec-num: "04"; }
+#skills { --sec-num: "05"; }
+#certificates { --sec-num: "06"; }
+#work { --sec-num: "07"; }
+#tools { --sec-num: "08"; }
+#testimonials { --sec-num: "09"; }
+#contact { --sec-num: "10"; }
+
+/* Work sample cards — tactile lift on hover (tilt added via JS, reduced-motion safe) */
+.work-card {
+  transition: transform 0.4s cubic-bezier(.2,.7,.2,1), box-shadow 0.4s ease;
+  will-change: transform;
+}
+.work-card:hover {
+  box-shadow: 0 20px 44px rgba(15,22,38,0.15);
 }
 
 .section-title {
@@ -1334,6 +1428,82 @@ footer p {
   transform: translateY(0);
 }
 
+/* ═══════════ MOTION PASS ═══════════ */
+
+/* progressive-enhancement gate: effects only when JS runs */
+html.js .section-title { clip-path: inset(0 105% 0 0); transition: clip-path 1.05s cubic-bezier(.19,1,.22,1); will-change: clip-path; }
+html.js .section-title.title-in { clip-path: inset(0 -8% 0 0); }
+html.js .section-divider { width: 0; transition: width .9s cubic-bezier(.19,1,.22,1) .15s; }
+html.js .section-divider.divider-in { width: 48px; }
+
+/* refined easing + deeper offset on existing reveals */
+.fade-up { transform: translateY(34px); transition: opacity .75s cubic-bezier(.19,1,.22,1), transform .75s cubic-bezier(.19,1,.22,1); }
+
+/* nav underline micro-interaction */
+.nav-links a { position: relative; }
+.nav-links a::after {
+  content: ""; position: absolute; left: 0; right: 100%; bottom: -5px; height: 1px;
+  background: var(--crimson); transition: right .4s cubic-bezier(.19,1,.22,1);
+}
+.nav-links a:hover::after { right: 0; }
+
+/* buttons: lift + magnetic readiness */
+.btn-primary, .btn-outline { will-change: transform; transition: background .25s, border-color .25s, color .25s, transform .35s cubic-bezier(.19,1,.22,1), box-shadow .35s; }
+.btn-primary:hover { box-shadow: 0 12px 28px rgba(183,30,45,.34); }
+.btn-outline:hover { box-shadow: 0 10px 24px rgba(0,0,0,.20); }
+
+/* certificate badges: tilt base + inner lift on hover */
+.cert-badge { transition: transform .45s cubic-bezier(.19,1,.22,1); transform-style: preserve-3d; }
+.cert-badge .cert-shield, .cert-badge .cert-rounded { transition: box-shadow .45s ease, transform .45s cubic-bezier(.19,1,.22,1); }
+.cert-badge:hover .cert-shield, .cert-badge:hover .cert-rounded { box-shadow: 0 16px 34px rgba(15,22,38,.26); transform: translateY(-7px); }
+
+/* tool pills: refined lift */
+.tool-pill { will-change: transform; }
+.tool-pill:hover { transform: translateY(-3px); box-shadow: 0 8px 18px rgba(15,22,38,.14); }
+
+/* hero: paper grain + soft texture */
+#home { position: relative; }
+#home::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1; opacity: .5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+#home .hero-left, #home .hero-right { position: relative; z-index: 2; }
+
+/* hero load choreography */
+@keyframes heroUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+html.js #home .hero-badge,
+html.js #home h1,
+html.js #home .hero-tagline,
+html.js #home .hero-intro,
+html.js #home .hero-stats,
+html.js #home .hero-ctas,
+html.js #home .hero-photo-wrap,
+html.js #home .hero-card { opacity: 0; animation: heroUp .95s cubic-bezier(.19,1,.22,1) forwards; }
+html.js #home .hero-badge { animation-delay: .10s; }
+html.js #home h1 { animation-delay: .22s; }
+html.js #home .hero-tagline { animation-delay: .34s; }
+html.js #home .hero-intro { animation-delay: .44s; }
+html.js #home .hero-stats { animation-delay: .54s; }
+html.js #home .hero-ctas { animation-delay: .64s; }
+html.js #home .hero-photo-wrap { animation-delay: .30s; }
+html.js #home .hero-card { animation-delay: .50s; }
+
+@media (hover: none), (pointer: coarse) {  }
+
+/* scroll progress — ledger rule */
+.scroll-progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; background: linear-gradient(90deg, var(--crimson), var(--gold)); z-index: 10000; }
+
+/* respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+  .fade-up { opacity: 1 !important; transform: none !important; }
+  html.js .section-title { clip-path: none !important; }
+  html.js .section-divider { width: 48px !important; }
+  html.js #home .hero-badge, html.js #home h1, html.js #home .hero-tagline, html.js #home .hero-intro,
+  html.js #home .hero-stats, html.js #home .hero-ctas, html.js #home .hero-photo-wrap, html.js #home .hero-card { opacity: 1 !important; }
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   nav { padding: 0 24px; }
@@ -1362,18 +1532,15 @@ footer p {
 
 <!-- ── NAV ── -->
 <nav>
-  <a href="#home" class="nav-logo">Valerie <span>M.</span> Tesorero</a>
+  <a href="#home" class="nav-logo" data-nav="home">Valerie <span>M.</span> Tesorero</a>
   <ul class="nav-links">
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#certificates">Certificates</a></li>
-    <li><a href="#work">Work Samples</a></li>
-    <li><a href="#tools">Tools</a></li>
-    <li><a href="#testimonials">Testimonials</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#home" data-nav="home">Home</a></li>
+    <li><a href="#about" data-nav="about">About</a></li>
+    <li><a href="#experience" data-nav="experience">Experience</a></li>
   </ul>
+  <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navOverlay">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- ── HERO ── -->
@@ -3176,21 +3343,219 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-// Nav active state
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
+// (scroll-spy nav removed — active state is handled by the view router below)
 
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(sec => {
-    if (window.scrollY >= sec.offsetTop - 100) current = sec.getAttribute('id');
+// ═══════════ MOTION PASS ═══════════
+(function () {
+  var root = document.documentElement;
+  root.classList.add('js');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // stagger existing reveals by sibling index (capped)
+  document.querySelectorAll('.fade-up').forEach(function (el) {
+    var sibs = [].filter.call(el.parentElement.children, function (c) {
+      return c.classList.contains('fade-up');
+    });
+    if (sibs.length > 1) {
+      el.style.transitionDelay = (Math.min(sibs.indexOf(el), 8) * 70) + 'ms';
+    }
   });
-  navLinks.forEach(link => {
-    link.style.color = link.getAttribute('href') === '#' + current
-      ? 'white'
-      : 'rgba(255,255,255,0.65)';
+
+  // section title (clip-wipe) + divider (draw) reveal
+  var titleObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add(
+          e.target.classList.contains('section-title') ? 'title-in' : 'divider-in'
+        );
+        titleObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.section-title, .section-divider').forEach(function (el) {
+    titleObs.observe(el);
   });
-});
+
+  // stat count-up
+  function countUp(el) {
+    var tn = el.childNodes[0];
+    if (!tn) return;
+    var target = parseInt((tn.textContent || '').replace(/\D/g, ''), 10);
+    if (isNaN(target)) return;
+    if (reduce) { tn.textContent = target; return; }
+    var start = null, dur = 1400;
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      tn.textContent = Math.round(eased * target);
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var statObs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { countUp(e.target); statObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('.stat-num').forEach(function (el) { statObs.observe(el); });
+
+  // scroll progress ledger rule
+  var bar = document.createElement('div');
+  bar.className = 'scroll-progress';
+  document.body.appendChild(bar);
+  function prog() {
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', prog, { passive: true });
+  prog();
+
+  if (reduce) return; // skip pointer-driven flourishes entirely
+
+  // magnetic buttons
+  document.querySelectorAll('.btn-primary, .btn-outline').forEach(function (btn) {
+    btn.addEventListener('mousemove', function (e) {
+      var r = btn.getBoundingClientRect();
+      var x = e.clientX - r.left - r.width / 2;
+      var y = e.clientY - r.top - r.height / 2;
+      btn.style.transform = 'translate(' + x * 0.25 + 'px,' + y * 0.35 + 'px)';
+    });
+    btn.addEventListener('mouseleave', function () { btn.style.transform = ''; });
+  });
+
+  // subtle 3D tilt on certificate badges
+  document.querySelectorAll('.cert-badge').forEach(function (card) {
+    card.addEventListener('mousemove', function (e) {
+      var r = card.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width - 0.5;
+      var py = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = 'perspective(700px) rotateY(' + px * 10 + 'deg) rotateX(' + (-py * 10) + 'deg)';
+    });
+    card.addEventListener('mouseleave', function () { card.style.transform = ''; });
+  });
+
+  // gentle pointer-follow tilt + lift on work sample cards (lighter angle for wide cards)
+  document.querySelectorAll('.work-card').forEach(function (card) {
+    card.addEventListener('mousemove', function (e) {
+      var r = card.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width - 0.5;
+      var py = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = 'perspective(1100px) translateY(-4px) rotateY(' + px * 3.5 + 'deg) rotateX(' + (-py * 3.5) + 'deg)';
+    });
+    card.addEventListener('mouseleave', function () { card.style.transform = ''; });
+  });
+})();
+</script>
+<div class="nav-overlay" id="navOverlay" aria-hidden="true" role="dialog" aria-label="Site menu">
+  <div class="nav-overlay-inner">
+    <div class="nav-overlay-eyebrow">Menu</div>
+    <div class="nav-overlay-links">
+      <a href="#home" data-nav="home"><span class="ov-num">01</span> Home</a>
+      <a href="#about" data-nav="about"><span class="ov-num">02</span> About</a>
+      <a href="#experience" data-nav="experience"><span class="ov-num">03</span> Experience</a>
+      <a href="#industries" data-nav="industries"><span class="ov-num">04</span> Industries</a>
+      <a href="#skills" data-nav="skills"><span class="ov-num">05</span> Skills</a>
+      <a href="#certificates" data-nav="certificates"><span class="ov-num">06</span> Certificates</a>
+      <a href="#work" data-nav="work"><span class="ov-num">07</span> Work Samples</a>
+      <a href="#tools" data-nav="tools"><span class="ov-num">08</span> Tools</a>
+      <a href="#testimonials" data-nav="testimonials"><span class="ov-num">09</span> Testimonials</a>
+      <a href="#contact" data-nav="contact"><span class="ov-num">10</span> Contact</a>
+    </div>
+    <div class="nav-overlay-foot">Valerie M. Tesorero — Executive VA &amp; Operations Partner</div>
+  </div>
+</div>
+
+<script>
+// ═══════════ VIEW ROUTER (multi-page behavior) ═══════════
+(function () {
+  var root = document.documentElement;
+  root.classList.add('js');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var views = [].slice.call(document.querySelectorAll('section[id]'));
+  var ids = views.map(function (v) { return v.id; });
+  var burger = document.getElementById('navBurger');
+  var overlay = document.getElementById('navOverlay');
+
+  var labels = { home:'Home', about:'About', experience:'Experience', industries:'Industries',
+    skills:'Skills', certificates:'Certificates', work:'Work Samples', tools:'Tools',
+    testimonials:'Testimonials', contact:'Contact' };
+
+  function countUp(el) {
+    var tn = el.childNodes[0]; if (!tn) return;
+    var target = parseInt((tn.textContent || '').replace(/\D/g, ''), 10);
+    if (isNaN(target)) return;
+    if (reduce) { tn.textContent = target; return; }
+    var start = null, dur = 1300;
+    function step(ts) { if (!start) start = ts; var p = Math.min((ts - start) / dur, 1);
+      tn.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
+      if (p < 1) requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }
+
+  // Reveals normally fire on scroll; inside a switched-in view we trigger them directly.
+  function revealWithin(view) {
+    view.querySelectorAll('.fade-up').forEach(function (el) { el.classList.add('visible'); });
+    view.querySelectorAll('.section-title').forEach(function (el) { el.classList.add('title-in'); });
+    view.querySelectorAll('.section-divider').forEach(function (el) { el.classList.add('divider-in'); });
+    view.querySelectorAll('.stat-num').forEach(function (el) { countUp(el); });
+  }
+
+  function setActive(id) {
+    document.querySelectorAll('[data-nav]').forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('data-nav') === id);
+    });
+  }
+
+  function show(id, push) {
+    if (ids.indexOf(id) === -1) id = 'home';
+    views.forEach(function (v) { v.classList.toggle('is-active', v.id === id); });
+    var active = document.getElementById(id);
+    if (!reduce) { active.style.animation = 'none'; void active.offsetWidth; active.style.animation = ''; }
+    revealWithin(active);
+    window.scrollTo(0, 0);
+    setActive(id);
+    document.title = (labels[id] ? labels[id] + ' — ' : '') + 'Valerie M. Tesorero';
+    if (push && location.hash !== '#' + id) history.pushState({ v: id }, '', '#' + id);
+  }
+
+  function openMenu() {
+    overlay.classList.add('open'); burger.classList.add('open');
+    burger.setAttribute('aria-expanded', 'true'); overlay.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('menu-open');
+  }
+  function closeMenu() {
+    overlay.classList.remove('open'); burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false'); overlay.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('menu-open');
+  }
+
+  burger.addEventListener('click', function () {
+    overlay.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) closeMenu(); });
+
+  // route any in-page hash link (nav, overlay, logo, hero CTAs) through the router
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var id = a.getAttribute('data-nav') || href.slice(1);
+    if (!id || ids.indexOf(id) === -1) return;
+    e.preventDefault();
+    closeMenu();
+    show(id, true);
+  });
+
+  window.addEventListener('popstate', function () {
+    show((location.hash || '#home').slice(1), false);
+  });
+
+  // initial view from URL hash (deep-linkable)
+  show((location.hash || '#home').slice(1), false);
+})();
 </script>
 </body>
 </html>

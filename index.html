@@ -1668,12 +1668,12 @@ html.js #home .hero-card { animation-delay: .50s; }
         <div class="certs-mini" style="margin-top:24px;">
           <div class="certs-mini-title">Certifications</div>
           <div class="cert-chips">
+            <span class="cert-chip">QuickBooks Level 1</span>
             <span class="cert-chip">Xero L1 Certified</span>
-            <span class="cert-chip">HubSpot Digital Marketing</span>
-            <span class="cert-chip">HubSpot Social Media Mktg II</span>
-            <span class="cert-chip">Real Estate VA Internship</span>
-            <span class="cert-chip">Secretarial Academy</span>
-            <span class="cert-chip">GIQ Certified (IQ 126)</span>
+            <span class="cert-chip">Procore Admin Part 1</span>
+            <span class="cert-chip">Procore Project Manager</span>
+            <span class="cert-chip">NDIS Worker Orientation</span>
+            <span class="cert-chip">New Worker NDIS Induction</span>
           </div>
         </div>
       </div>
@@ -3380,16 +3380,21 @@ document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   function countUp(el) {
     var tn = el.childNodes[0];
     if (!tn) return;
-    var target = parseInt((tn.textContent || '').replace(/\D/g, ''), 10);
+    if (!el.dataset.target) el.dataset.target = (el.textContent || '').replace(/\D/g, '');
+    var target = parseInt(el.dataset.target, 10);
     if (isNaN(target)) return;
-    if (reduce) { tn.textContent = target; return; }
+    if (el.dataset.counting === '1') return;      // an animation is already running
+    if (el.dataset.done === '1') { tn.textContent = target; return; }
+    if (reduce) { tn.textContent = target; el.dataset.done = '1'; return; }
+    el.dataset.counting = '1';
     var start = null, dur = 1400;
     function step(ts) {
       if (!start) start = ts;
       var p = Math.min((ts - start) / dur, 1);
       var eased = 1 - Math.pow(1 - p, 3);
       tn.textContent = Math.round(eased * target);
-      if (p < 1) requestAnimationFrame(step);
+      if (p < 1) { requestAnimationFrame(step); }
+      else { el.dataset.counting = '0'; el.dataset.done = '1'; }
     }
     requestAnimationFrame(step);
   }
@@ -3484,13 +3489,18 @@ document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
   function countUp(el) {
     var tn = el.childNodes[0]; if (!tn) return;
-    var target = parseInt((tn.textContent || '').replace(/\D/g, ''), 10);
+    if (!el.dataset.target) el.dataset.target = (el.textContent || '').replace(/\D/g, '');
+    var target = parseInt(el.dataset.target, 10);
     if (isNaN(target)) return;
-    if (reduce) { tn.textContent = target; return; }
+    if (el.dataset.counting === '1') return;
+    if (el.dataset.done === '1') { tn.textContent = target; return; }
+    if (reduce) { tn.textContent = target; el.dataset.done = '1'; return; }
+    el.dataset.counting = '1';
     var start = null, dur = 1300;
     function step(ts) { if (!start) start = ts; var p = Math.min((ts - start) / dur, 1);
       tn.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
-      if (p < 1) requestAnimationFrame(step); }
+      if (p < 1) { requestAnimationFrame(step); }
+      else { el.dataset.counting = '0'; el.dataset.done = '1'; } }
     requestAnimationFrame(step);
   }
 

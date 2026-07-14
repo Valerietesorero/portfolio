@@ -493,6 +493,47 @@ section { padding: 100px 0; }
   align-items: start;
 }
 
+/* ── Introduction video ── */
+.intro-video-block { margin-top: 72px; }
+.intro-video-label {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--crimson); margin-bottom: 10px;
+}
+.intro-video-heading {
+  font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 400;
+  color: var(--navy); margin-bottom: 20px;
+}
+.intro-video-heading em { color: var(--crimson); font-style: italic; }
+.intro-video-frame {
+  position: relative; width: 100%; max-width: 900px; margin: 0 auto;
+  aspect-ratio: 16 / 9; background: var(--navy);
+  border-radius: 4px; overflow: hidden;
+  box-shadow: 0 24px 60px rgba(15,22,38,0.18);
+}
+.intro-video-frame iframe,
+.intro-video-frame video {
+  position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block;
+}
+/* placeholder shown until a URL is added */
+.intro-video-empty {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 14px; text-align: center; padding: 24px; color: var(--cream);
+}
+.intro-video-empty .ivp-play {
+  width: 62px; height: 62px; border-radius: 50%;
+  border: 1px solid rgba(183,30,45,.85); background: rgba(183,30,45,.14);
+  display: flex; align-items: center; justify-content: center;
+}
+.intro-video-empty .ivp-play::after {
+  content: ''; margin-left: 4px;
+  border-left: 15px solid var(--crimson-light, #e0475a);
+  border-top: 9px solid transparent; border-bottom: 9px solid transparent;
+}
+.intro-video-empty .ivp-title { font-family: 'Cormorant Garamond', serif; font-size: 21px; }
+.intro-video-empty .ivp-hint { font-size: 12px; color: rgba(245,240,235,.55); max-width: 420px; line-height: 1.6; }
+@media (max-width: 768px) { .intro-video-block { margin-top: 48px; } }
+
 .about-text p {
   font-size: 15px;
   line-height: 1.85;
@@ -730,6 +771,24 @@ section { padding: 100px 0; }
   padding: 3px 10px;
   border-radius: 2px;
   margin-top: 12px;
+}
+
+.exp-tools {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--cream-dark);
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--slate, #55607a);
+}
+.exp-tools strong {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--crimson);
+  font-weight: 600;
+  margin-bottom: 4px;
 }
 
 /* ── SKILLS ── */
@@ -1678,6 +1737,30 @@ html.js #home .hero-card { animation-delay: .50s; }
         </div>
       </div>
     </div>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         INTRODUCTION VIDEO
+         To add your video: paste the link inside the quotes below.
+         Works with Google Drive, Loom, YouTube, Vimeo, or a direct .mp4 link.
+
+         Google Drive: share the file as "Anyone with the link" first,
+         then paste the normal share link — it converts automatically.
+         e.g. data-video="https://drive.google.com/file/d/FILE_ID/view?usp=sharing"
+
+         Leave it empty ("") to show the placeholder.
+    ═══════════════════════════════════════════════════════════════ -->
+    <div class="intro-video-block fade-up">
+      <div class="intro-video-label">Introduction</div>
+      <div class="intro-video-heading">Meet me <em>in person.</em></div>
+      <div class="intro-video-frame" id="introVideo" data-video="https://drive.google.com/file/d/1fd1BUO1KAC7EFO0ZsDMsS9Hg2fT4lpqQ/view?usp=sharing">
+        <div class="intro-video-empty">
+          <div class="ivp-play"></div>
+          <div class="ivp-title">Introduction video coming soon</div>
+          <div class="ivp-hint">To add it, open index.html, find <strong>data-video=""</strong> and paste your Google Drive, Loom, YouTube, Vimeo, or MP4 link between the quotes.</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1744,103 +1827,97 @@ html.js #home .hero-card { animation-delay: .50s; }
 
       <div class="exp-item fade-up">
         <div class="exp-header">
-          <div class="exp-title">Executive Assistant / Account Assistant</div>
+          <div class="exp-title">Executive Assistant &amp; Account Assistant</div>
           <div class="exp-date">Jan 2025 – Feb 2026</div>
         </div>
-        <div class="exp-company">LINKBY · Advertising Industry · AU/UK/US Teams</div>
+        <div class="exp-company">LINKBY · AU-Based PR &amp; Advertising Industry</div>
         <ul class="exp-points">
-          <li>Managed C-Suite inbox, calendars, meetings, and executive admin support across multiple time zones</li>
-          <li>Supported lead generation, outreach, and CRM pipeline updates in HubSpot and ZoomInfo</li>
-          <li>Handled HR records, interviewing, onboarding, and employee tracking in BambooHR</li>
-          <li>Assisted with transaction tracking, collections, and account reconciliations</li>
-          <li>Prepared reports, case studies, and CPC &amp; CPM campaign support materials</li>
-          <li>Coordinated cross-functional administrative tasks across global AU, UK, and US teams</li>
-          <li>Built SOPs, training materials, and improved existing workflows from scratch</li>
+          <li>Supported two Co-Founders, CFO, and cross-functional senior leaders in the US, UK, and AU</li>
+          <li>Managed executive delegated calendars, inboxes, meetings, and travel coordination across AU, UK, and US time zones, ensuring seamless executive support</li>
+          <li>Maintained CRM records, lead generation activities, and sales pipeline updates using HubSpot and ZoomInfo</li>
+          <li>Coordinated recruitment, onboarding, employee of records, and HR administration using BambooHR and Deel</li>
+          <li>Assisted with account reconciliations, collections, transaction tracking, and financial administration using Xero</li>
+          <li>Prepared campaign reports, case studies, presentation materials, and CPC/CPM performance reports for senior leaders review and client's presentation</li>
+          <li>Developed SOPs, process documentation, and workflow improvements that increased operational efficiency using AI &amp; Automation</li>
+          <li>Collaborated with cross-functional teams across multiple international business units to ensure project completion using Slack</li>
         </ul>
+        <div class="exp-tools"><strong>Tools &amp; Systems</strong>Hubspot, Slack, Canva, Microsoft 365 (Excel, Powerpoint, Word), Google Workspace, Zapier, Make, Trello, HubDoc, ChatGPT, Claude, Gemini, Xero, BambooHR, Deel, Contact Out, Snov.io, Apollo, ZoomInfo, Hunter, Fathom, Internal Linkby Systems for campaigns &amp; affiliate, LUMOS, Reed &amp; Mackay</div>
         <span class="exp-badge">Global · Multi-timezone · SOP Creation</span>
       </div>
 
       <div class="exp-item fade-up">
         <div class="exp-header">
-          <div class="exp-title">Executive Assistant to Executive Director</div>
+          <div class="exp-title">Executive Assistant to the Executive Director</div>
           <div class="exp-date">Oct 2024 – Jan 2026</div>
         </div>
-        <div class="exp-company">PULSAR ALARM SYSTEMS · Life &amp; Safety Security Industry</div>
+        <div class="exp-company">PULSAR ALARM SYSTEMS · US-Based Life &amp; Safety Field Industry</div>
         <ul class="exp-points">
-          <li>Managed complex executive calendars across multiple time zones; zero double-bookings across full engagement</li>
-          <li>Coordinated domestic travel with full attention to logistics and executive readiness</li>
-          <li>Managed inbox flow, drafted communications, and maintained follow-up with all internal and external stakeholders</li>
-          <li>Prepared leadership reports, sales summaries, and meeting briefs for executive decision-making</li>
-          <li>Maintained CRM data accuracy and organized reporting for sales and operational visibility in Salesforce</li>
-          <li>Achieved 100% closed deals on the ResQ Connect Project tracked in Salesforce</li>
-          <li>Coordinated with Multifamily property stakeholders for Cost Savings Analysis end-to-end</li>
+          <li>Managed executive calendars, inbox triage, meeting coordination, and stakeholder communications across multiple time zones with zero scheduling conflicts</li>
+          <li>Coordinated domestic travel, itineraries, and executive logistics while maintaining high executive readiness</li>
+          <li>Prepared executive reports, sales summaries, meeting agendas, and leadership briefing documents</li>
+          <li>Maintained CRM records, sales reporting, and pipeline visibility using Salesforce</li>
+          <li>Supported the ResQ Connect portfolio project for Multifamily decision makers, contributing to a 100% sales close rate through accurate CRM hygiene and executive follow-up</li>
+          <li>Coordinated cost savings analysis and project documentation with Multifamily property stakeholders</li>
+          <li>Managed confidential correspondence, compliance, and ensured timely follow-up on executive priorities</li>
+          <li>Handled inbound calls for maintenance and service inquiries, act as point of contact and/or gatekeeper, outbound calls for follow-ups and updates on installation and maintenance</li>
         </ul>
-        <span class="exp-badge">100% Closed Deals · Salesforce · Stakeholder Mgmt</span>
+        <div class="exp-tools"><strong>Tools &amp; Systems</strong>Salesforce, Google Voice, Microsoft 365 (Excel, Powerpoint, Word, Loop, MS Teams), Google Workspace, Canva, Mailchimp, Adobe Acrobat Sign, Apollo, ChatGPT, Claude, Perflexity, Copilot, Fireflies, Linear</div>
+        <span class="exp-badge">100% Close Rate · Salesforce · Stakeholder Mgmt</span>
       </div>
 
       <div class="exp-item fade-up">
         <div class="exp-header">
-          <div class="exp-title">Executive General Assistant</div>
-          <div class="exp-date">Mar 2020 – Sep 2024</div>
+          <div class="exp-title">General Admin Assistant &amp; Project Coordinator <span style="font-weight:400;">(Full-time flexible)</span></div>
+          <div class="exp-date">Mar 2020 – Sept 2024</div>
         </div>
-        <div class="exp-company">WIENEU · Cleaning Industry · Global Operations</div>
+        <div class="exp-company">PAINTERS PRO USA · US-Based Construction Industry (Painting)</div>
         <ul class="exp-points">
-          <li>Streamlined executive schedules and handled all complex administrative tasks</li>
-          <li>Managed social media presence with branded graphic content and video reels (Instagram, Facebook, TikTok)</li>
-          <li>Handled HR records, interviewing, onboarding, and employee tracking across global teams</li>
-          <li>Supported lead generation, outreach, and CRM updates in HubSpot and ZoomInfo</li>
-          <li>Assisted with transaction tracking, collections, and financial reconciliations</li>
-          <li>Prepared reports, case studies, and CPC &amp; CPM campaign support materials</li>
-          <li>Coordinated cross-functional admin tasks across AU, UK, and US teams</li>
+          <li>Supported commercial, industrial, residential, and HOA painting projects from project setup through closeout, ensuring project schedules, milestones, and deliverables were completed on time</li>
+          <li>Managed executive calendars, estimator schedules, field crew assignments, client communications, and project scheduling across multiple active jobs</li>
+          <li>Prepared estimates, RFIs, Markups, Submittals, proposals, contracts, work orders, change orders, Certificates of Insurance (COIs), lien waivers, project documentation, and closeout packages</li>
+          <li>Coordinated subcontractors, vendors, suppliers, material procurement, and logistics to support field operations and project execution</li>
+          <li>Maintained project documentation, daily reports, compliance &amp; insurance records, and construction management systems while ensuring accurate job tracking and document control</li>
+          <li>Monitored &amp; tracked job costing, labor hours, material usage, purchase orders, invoices, payroll support, reimbursements, and budget tracking for operational and financial reporting</li>
+          <li>Prepared KPI dashboards, project status reports, P&amp;L summaries, bookkeeping, and executive reports to support operational planning and business decision-making</li>
+          <li>Developed SOPs, automations, standardized administrative workflows, file management with accurate naming convention, and process improvements that enhanced project coordination, communication, and operational efficiency</li>
         </ul>
-        <span class="exp-badge">4 Years · Full-Scope Operations</span>
+        <div class="exp-tools"><strong>Tools &amp; Systems</strong>BusyBusy, CompanyCam, Estimate Rocket, Knowify, Procore, Wunderbuild, Construction Clock, Sherwin-Williams Pro+, Microsoft 365, Google Workspace, Canva, Mailchimp, DocuSign, Avetta, Quickbooks, ChatGPT</div>
+        <span class="exp-badge">Job Costing · KPI Reporting · Project Coordination</span>
       </div>
 
       <div class="exp-item fade-up">
         <div class="exp-header">
-          <div class="exp-title">Recruitment Specialist</div>
-          <div class="exp-date">Apr 2021 – Jul 2024</div>
+          <div class="exp-title">Executive General Assistant <span style="font-weight:400;">(Part-time)</span></div>
+          <div class="exp-date">Apr 2021 – July 2024</div>
         </div>
-        <div class="exp-company">LUCID ACHIEVEMENT · Coaching Industry</div>
+        <div class="exp-company">WIE NEU · Swiss-Based Cleaning Industry</div>
         <ul class="exp-points">
-          <li>Enhanced hiring quality and reduced time-to-hire through structured candidate assessment</li>
-          <li>Developed job descriptions and posted openings across LinkedIn, Indeed, and niche platforms</li>
-          <li>Coordinated onboarding processes to ensure smooth transitions for new hires</li>
-          <li>Collaborated with hiring managers to build tailored, role-specific recruitment strategies</li>
-          <li>Maintained candidate records and managed full interview scheduling workflow</li>
+          <li>Managed scheduling, residential, commercial, maintenance, HVAC projects, and daily administrative operations</li>
+          <li>Streamlined executive schedules and managed complex administrative tasks</li>
+          <li>Enhanced efficiency through effective administrative support and project management</li>
+          <li>Helped enhance social media presence with engaging graphic content and video reels</li>
+          <li>Coordinated travel arrangements, meetings, and events to optimize time and resources</li>
+          <li>Managed communications, including emails, phone calls, and client interactions</li>
+          <li>Assisted in the preparation of presentations, reports, and documents for key meetings</li>
         </ul>
-        <span class="exp-badge">End-to-End Recruitment · Talent Coordination</span>
-      </div>
-
-      <div class="exp-item fade-up">
-        <div class="exp-header">
-          <div class="exp-title">General Admin Assistant</div>
-          <div class="exp-date">Jan 2019 – Feb 2020</div>
-        </div>
-        <div class="exp-company">PAINTERS PRO USA · Construction Industry</div>
-        <ul class="exp-points">
-          <li>Managed daily admin operations for active construction projects and office priorities</li>
-          <li>Created and organized estimates, contracts, COI documents, reports, and job documentation</li>
-          <li>Processed invoices and monitored project-related cost records and job costing</li>
-          <li>Assisted in expense reporting, annual job revenue tracking, and KPI reporting</li>
-          <li>Supported internal reporting and operational follow-through for management</li>
-        </ul>
-        <span class="exp-badge">Job Costing · KPI Reporting · Document Management</span>
+        <div class="exp-tools"><strong>Tools &amp; Systems</strong>Google Workspace, DocuSign, Whatsapp, Tradify, Jobber, Metricool, Canva, Capcut, Meta Business Suite</div>
+        <span class="exp-badge">Part-Time · Admin &amp; Social Media Support</span>
       </div>
 
       <div class="exp-item fade-up">
         <div class="exp-header">
           <div class="exp-title">Operations CSR IV</div>
-          <div class="exp-date">Jan 2019 – Mar 2020</div>
+          <div class="exp-date">Jan 2019 – Mar 2021</div>
         </div>
-        <div class="exp-company">TELUS INTERNATIONAL PHILIPPINES · BPO Industry</div>
+        <div class="exp-company">TELUS INTL. PHILIPPINES · Canada-Based Telco Industry</div>
         <ul class="exp-points">
-          <li>Managed daily customer interactions across billing and technical support with focus on accurate resolution</li>
-          <li>Consistently met performance standards through strong service quality and customer handling</li>
-          <li>Supported customer retention by resolving concerns and identifying appropriate service solutions</li>
-          <li>Maintained accurate CRM documentation for issue tracking and follow-up</li>
-          <li>Reviewed recurring concerns and customer feedback to improve service processes</li>
+          <li>Delivered customer support for billing and technical inquiries while consistently meeting service level agreements and quality metrics</li>
+          <li>Documented customer interactions, case notes using Zendesk, and resolutions within CRM systems to maintain accurate records</li>
+          <li>Resolved escalated customer concerns through effective troubleshooting and issue resolution</li>
+          <li>Maintained high customer satisfaction by providing timely follow-up and professional communication</li>
+          <li>Identified recurring issues and provided feedback to improve operational processes and customer experience</li>
         </ul>
+        <div class="exp-tools"><strong>Tools &amp; Systems</strong>Zendesk, CRM Systems, Microsoft 365, Google Workspace</div>
         <span class="exp-badge">CRM Documentation · Customer Retention</span>
       </div>
 
@@ -3565,6 +3642,45 @@ document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
   // initial view from URL hash (deep-linkable)
   show((location.hash || '#home').slice(1), false);
+})();
+</script>
+<script>
+// ═══════════ INTRODUCTION VIDEO EMBED ═══════════
+// Reads the data-video="" link on #introVideo and builds the right embed.
+(function () {
+  var box = document.getElementById('introVideo');
+  if (!box) return;
+  var url = (box.getAttribute('data-video') || '').trim();
+  if (!url) return; // keep placeholder
+
+  var embed = '';
+  var m;
+
+  if ((m = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/)) ||
+      (m = url.match(/drive\.google\.com\/open\?id=([a-zA-Z0-9_-]+)/)) ||
+      (m = url.match(/drive\.google\.com\/uc\?(?:.*&)?id=([a-zA-Z0-9_-]+)/))) {
+    embed = 'https://drive.google.com/file/d/' + m[1] + '/preview';
+  } else if ((m = url.match(/loom\.com\/(?:share|embed)\/([a-zA-Z0-9]+)/))) {
+    embed = 'https://www.loom.com/embed/' + m[1];
+  } else if ((m = url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{6,})/))) {
+    embed = 'https://www.youtube.com/embed/' + m[1] + '?rel=0';
+  } else if ((m = url.match(/vimeo\.com\/(?:video\/)?(\d+)/))) {
+    embed = 'https://player.vimeo.com/video/' + m[1];
+  } else if (/\.(mp4|webm|ogg)(\?|$)/i.test(url)) {
+    box.innerHTML = '<video controls preload="metadata" playsinline src="' + url + '"></video>';
+    return;
+  } else {
+    embed = url; // already an embed/player link
+  }
+
+  var f = document.createElement('iframe');
+  f.src = embed;
+  f.title = 'Introduction video — Valerie M. Tesorero';
+  f.loading = 'lazy';
+  f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+  f.setAttribute('allowfullscreen', '');
+  box.innerHTML = '';
+  box.appendChild(f);
 })();
 </script>
 </body>

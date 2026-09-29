@@ -4,6 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Valerie M. Tesorero — Executive VA & Operations Partner</title>
+<meta name="description" content="Senior Executive Virtual Assistant and Operations Partner with 7+ years supporting founders and C-suite across AU, UK and US time zones. SOPs, systems, trackers and automation.">
+<meta name="theme-color" content="#0f1626">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://valerietesorero.github.io/portfolio/">
+<meta property="og:title" content="Valerie M. Tesorero — Executive VA & Operations Partner">
+<meta property="og:description" content="7+ years supporting founders and C-suite across AU, UK and US time zones. SOPs, systems, trackers and automation.">
+<meta property="og:image" content="https://valerietesorero.github.io/portfolio/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://valerietesorero.github.io/portfolio/og-image.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230f1626'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-family='Georgia,serif' font-size='30' font-weight='600' fill='%23f5f0eb'%3EVT%3C/text%3E%3Crect x='20' y='50' width='24' height='2' fill='%23e5555e'/%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -137,6 +149,7 @@ html.js section[id]:not(.is-active) { display: none !important; }
 .nav-overlay.open .nav-overlay-links a:nth-child(8){animation-delay:.40s}
 .nav-overlay.open .nav-overlay-links a:nth-child(9){animation-delay:.45s}
 .nav-overlay.open .nav-overlay-links a:nth-child(10){animation-delay:.50s}
+.nav-overlay.open .nav-overlay-links a:nth-child(11){animation-delay:.55s}
 body.menu-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .nav-overlay-links a { opacity: 1; transform: none; animation: none !important; }
@@ -448,16 +461,17 @@ section { padding: 100px 0; }
   font-weight: 600;
 }
 #about { --sec-num: "02"; }
-#experience { --sec-num: "03"; }
-#industries { --sec-num: "04"; }
-#skills { --sec-num: "05"; }
-#certificates { --sec-num: "06"; }
-#work { --sec-num: "07"; }
-#tools { --sec-num: "08"; }
-#testimonials { --sec-num: "09"; }
-#contact { --sec-num: "10"; }
+#plan { --sec-num: "03"; }
+#experience { --sec-num: "04"; }
+#industries { --sec-num: "05"; }
+#skills { --sec-num: "06"; }
+#certificates { --sec-num: "07"; }
+#work { --sec-num: "08"; }
+#tools { --sec-num: "09"; }
+#testimonials { --sec-num: "10"; }
+#contact { --sec-num: "11"; }
 
-/* Work sample cards — tactile lift on hover (tilt added via JS, reduced-motion safe) */
+/* Work sample cards — soft shadow on hover */
 .work-card {
   transition: transform 0.4s cubic-bezier(.2,.7,.2,1), box-shadow 0.4s ease;
   will-change: transform;
@@ -1608,6 +1622,223 @@ html.js #home .hero-card { animation-delay: .50s; }
   .hero-stats { gap: 24px; }
   footer { flex-direction: column; gap: 8px; text-align: center; }
 }
+
+/* ═══════════ REFINEMENT PASS ═══════════ */
+:root { --crimson-bright: #e5555e; --wire: #ddd5c9; --wire-fill: #efe9e0; }
+
+/* Readable crimson on dark backgrounds */
+.hero-left h1 em,
+.nav-logo span,
+.stat-num span,
+.nav-overlay-eyebrow,
+#industries .section-eyebrow, #tools .section-eyebrow, #contact .section-eyebrow,
+#industries .section-title em, #tools .section-title em, #contact .section-title em { color: var(--crimson-bright); }
+
+/* Faint text on dark backgrounds, raised to readable levels */
+.hero-tagline { color: rgba(255,255,255,0.7); font-weight: 400; }
+.hero-intro { color: rgba(255,255,255,0.82); font-weight: 400; }
+.hero-badge span { color: rgba(255,255,255,0.82); }
+.stat-label { color: rgba(255,255,255,0.65); max-width: 130px; line-height: 1.4; }
+.contact-line { color: rgba(255,255,255,0.7); }
+.industry-years { color: rgba(255,255,255,0.62); }
+.contact-statement { color: rgba(255,255,255,0.78); font-weight: 400; }
+.nav-overlay-foot { color: rgba(245,240,235,0.65); }
+footer p { color: rgba(255,255,255,0.6); }
+.btn-outline { color: rgba(255,255,255,0.88); border-color: rgba(255,255,255,0.4); }
+
+/* Small labels bumped to a readable minimum */
+.section-eyebrow, .hero-card-title, .tool-group-label { font-size: 12px; }
+.work-card-label, .intro-video-label, .certs-mini-title { font-size: 11.5px; }
+.crm-panel-pill, .auto-label span { font-size: 10px; }
+.cs-tag { font-size: 11px; }
+
+/* Buttons: no magnetic pull, a quiet lift instead */
+.btn-primary, .btn-outline { will-change: auto; }
+.btn-primary:hover, .btn-outline:hover { transform: translateY(-2px); }
+.btn-primary:focus-visible, .btn-outline:focus-visible, .view-next:focus-visible, .nav-links a:focus-visible {
+  outline: 2px solid var(--gold); outline-offset: 3px;
+}
+.btn-outline-dark { color: var(--navy); border-color: rgba(15,22,38,0.3); }
+.btn-outline-dark:hover { color: var(--navy); border-color: var(--navy); }
+.work-card { will-change: auto; }
+
+/* Nav: five links need more room before collapsing to the menu button */
+@media (max-width: 760px) { .nav-links { display: none; } }
+
+/* Contact CTA */
+.contact-cta { margin-bottom: 40px; }
+.contact-cta .btn-primary { display: inline-block; }
+
+/* ── "Next" link at the bottom of each view ── */
+.view-pager { margin-top: 72px; }
+section#contact .view-pager, section#industries .view-pager { margin-top: 56px; }
+.view-next {
+  display: flex; align-items: center; gap: 16px;
+  padding: 26px 0 0; border-top: 1px solid var(--cream-dark);
+  text-decoration: none; color: var(--navy);
+}
+.vn-label { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); }
+.vn-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 3vw, 32px); font-weight: 600; margin-left: auto; }
+.vn-arrow { width: 28px; height: 28px; color: var(--crimson); transition: transform .3s ease; }
+.view-next:hover .vn-arrow { transform: translateX(6px); }
+.view-pager.on-dark .view-next { color: var(--white); border-top-color: rgba(255,255,255,0.12); }
+.view-pager.on-dark .vn-label { color: rgba(255,255,255,0.65); }
+.view-pager.on-dark .vn-arrow { color: var(--crimson-bright); }
+
+/* ── 90-DAY PLAN ── */
+#plan { background: var(--cream); }
+.plan-lede { font-size: 17px; line-height: 1.8; color: #3d3d3d; max-width: 640px; margin-bottom: 64px; }
+
+.plan-track {
+  list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  position: relative; margin-bottom: 96px;
+}
+.plan-track::before {
+  content: ""; position: absolute; top: 27px; left: 28px; right: 28px; height: 2px;
+  background: linear-gradient(90deg, var(--navy) 0%, var(--crimson) 55%, var(--gold) 100%);
+}
+.plan-phase {
+  position: relative; background: var(--white); border: 1px solid var(--cream-dark);
+  border-radius: 4px; padding: 84px 28px 28px; display: flex; flex-direction: column;
+}
+.plan-node {
+  position: absolute; top: 0; left: 28px; width: 56px; height: 56px; border-radius: 50%;
+  background: var(--navy); display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 0 6px var(--cream); z-index: 1;
+}
+.plan-phase:nth-child(2) .plan-node { background: var(--crimson); }
+.plan-phase:nth-child(3) .plan-node { background: var(--gold); }
+.plan-node span { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--white); }
+.plan-phase:nth-child(3) .plan-node span { color: var(--navy); }
+.plan-phase { margin-top: 28px; padding-top: 52px; }
+.plan-node { top: -28px; }
+.plan-days { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--crimson); margin-bottom: 6px; }
+.plan-phase-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--navy); line-height: 1.15; margin-bottom: 16px; }
+.plan-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 22px; flex: 1; }
+.plan-list li { position: relative; padding-left: 20px; font-size: 14px; line-height: 1.6; color: #444; }
+.plan-list li::before { content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 2px; background: var(--crimson); }
+.plan-deliverable { font-size: 13.5px; line-height: 1.6; color: var(--navy); background: var(--cream); border-left: 2px solid var(--gold); padding: 12px 14px; }
+.plan-deliverable strong { font-weight: 600; }
+
+.plan-subhead { margin-bottom: 28px; }
+.plan-subhead h3 { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 3vw, 34px); font-weight: 600; color: var(--navy); line-height: 1.2; }
+.plan-subhead p { font-size: 14.5px; color: var(--text-muted); margin-top: 6px; }
+
+.plan-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-bottom: 96px; }
+.plan-card { background: var(--white); border: 1px solid var(--cream-dark); border-radius: 4px; padding: 20px 20px 26px; }
+.plan-card-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--navy); margin: 22px 4px 8px; }
+.plan-card-desc { font-size: 14px; line-height: 1.7; color: var(--text-muted); margin: 0 4px; max-width: 460px; }
+
+/* wireframe shell (reuses the mockup-chrome look from Sample Work) */
+.wire-frame { border: 1px solid var(--cream-dark); border-radius: 4px; overflow: hidden; background: #fbfaf7; }
+.wire-body { padding: 18px; min-height: 200px; }
+.wl { display: block; height: 8px; border-radius: 4px; background: var(--wire); }
+.w35 { width: 35%; } .w40 { width: 40%; } .w45 { width: 45%; } .w50 { width: 50%; } .w55 { width: 55%; } .w70 { width: 70%; } .w80 { width: 80%; }
+.pill { font-size: 10.5px; font-weight: 600; padding: 3px 9px; border-radius: 10px; white-space: nowrap; }
+.p-green { background: rgba(34,197,94,0.14); color: #15803d; }
+.p-gold { background: rgba(201,168,76,0.2); color: #7d6420; }
+.p-red { background: rgba(183,30,45,0.12); color: var(--crimson); }
+
+/* automation flow */
+.flow-svg { width: 100%; height: auto; display: block; }
+.flow-svg .f-line { fill: none; stroke: #b9b0a2; stroke-width: 1.6; }
+.flow-svg .f-arrow { fill: #b9b0a2; }
+.flow-svg .f-node { fill: var(--white); stroke: var(--wire); stroke-width: 1.4; }
+.flow-svg .f-accent { stroke: var(--crimson); }
+.flow-svg .f-hub { fill: var(--navy); }
+.flow-svg .f-txt { font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 500; fill: var(--navy); text-anchor: middle; }
+.flow-svg .f-sub { font-family: 'Outfit', sans-serif; font-size: 10px; fill: var(--text-muted); text-anchor: middle; }
+.flow-svg .f-light { fill: var(--white); }
+
+/* SOP wireframe */
+.sop-wire { display: flex; flex-direction: column; gap: 11px; }
+.sop-head { border-bottom: 1px solid var(--wire); padding-bottom: 10px; margin-bottom: 2px; }
+.sop-title { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 600; color: var(--navy); }
+.sop-meta { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+.sop-step { display: flex; align-items: center; gap: 10px; }
+.sop-check { width: 13px; height: 13px; border: 1.5px solid #b9b0a2; border-radius: 2px; flex: none; }
+.sop-check.done { background: var(--navy); border-color: var(--navy); position: relative; }
+.sop-check.done::after { content: ""; position: absolute; left: 3px; top: 0px; width: 4px; height: 7px; border: solid #fff; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg); }
+.sop-n { font-size: 11px; font-weight: 600; color: var(--crimson); width: 10px; }
+.sop-step .wl { flex: none; }
+.sop-shot {
+  margin-left: 33px; height: 46px; border: 1px dashed #c9c0b3; border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  background: repeating-linear-gradient(135deg, transparent 0 8px, rgba(15,22,38,0.03) 8px 16px);
+}
+.sop-shot span { font-size: 10.5px; color: var(--text-muted); }
+
+/* pipeline */
+.pipe { list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); position: relative; margin: 6px 0 22px; }
+.pipe::before { content: ""; position: absolute; top: 7px; left: 10%; right: 10%; height: 2px; background: var(--wire); }
+.pipe-stage { display: flex; flex-direction: column; align-items: center; gap: 6px; position: relative; text-align: center; }
+.pipe-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--white); border: 2px solid #c9c0b3; z-index: 1; }
+.pipe-stage.is-done .pipe-dot { background: var(--navy); border-color: var(--navy); }
+.pipe-stage.is-now .pipe-dot { background: var(--crimson); border-color: var(--crimson); box-shadow: 0 0 0 4px rgba(183,30,45,0.15); }
+.pipe-name { font-size: 11px; font-weight: 500; color: var(--navy); }
+.pipe-count { font-size: 10.5px; color: var(--text-muted); background: var(--wire-fill); border-radius: 8px; padding: 1px 7px; }
+.pipe-rows, .trk { display: flex; flex-direction: column; gap: 10px; }
+.pipe-row, .trk-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 10px; background: var(--white); border: 1px solid var(--wire-fill); border-radius: 3px; }
+.trk-row { margin-top: 8px; }
+
+/* dashboard */
+.kpi-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.kpi { background: var(--white); border: 1px solid var(--wire-fill); border-radius: 3px; padding: 9px 10px; display: flex; flex-direction: column; gap: 8px; }
+.kpi-label { font-size: 10.5px; color: var(--text-muted); }
+.kpi-bar { height: 6px; background: var(--wire-fill); border-radius: 3px; overflow: hidden; }
+.kpi-bar i { display: block; height: 100%; background: var(--navy); }
+.mini-chart { display: flex; align-items: flex-end; gap: 8px; height: 62px; margin: 14px 0 4px; padding: 0 2px; border-bottom: 1px solid var(--wire); }
+.mini-chart i { flex: 1; background: var(--wire); border-radius: 2px 2px 0 0; }
+.mini-chart i.hi { background: var(--gold); }
+
+/* weekly rhythm */
+.rhythm { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 2px solid var(--navy); margin-bottom: 80px; }
+.rhythm li { padding: 20px 20px 0 0; display: flex; flex-direction: column; gap: 6px; position: relative; }
+.rhythm li::before { content: ""; position: absolute; top: -7px; left: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--cream); border: 2px solid var(--crimson); }
+.r-when { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--navy); }
+.r-what { font-size: 14px; line-height: 1.6; color: #444; }
+
+.plan-cta { background: var(--navy); border-radius: 4px; padding: 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.plan-cta p { font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--white); line-height: 1.25; }
+.plan-cta-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.plan-cta .btn-outline-dark { color: rgba(255,255,255,0.88); border-color: rgba(255,255,255,0.4); }
+.plan-cta .btn-outline-dark:hover { color: var(--white); border-color: rgba(255,255,255,0.7); }
+
+@media (max-width: 900px) {
+  /* keep the photo on phones and tablets */
+  .hero-photo-wrap {
+    display: block; position: relative; right: auto; bottom: auto; z-index: 1;
+    order: -1; width: 112px; height: 112px; margin: 0 0 28px; align-self: flex-start;
+    border-radius: 50%; overflow: hidden; background: var(--navy-mid);
+    box-shadow: 0 0 0 2px var(--gold), 0 0 0 7px rgba(201,168,76,0.15);
+  }
+  .hero-photo-glow { display: none; }
+  .hero-photo { position: absolute; width: 210px; height: auto; max-width: none;
+    top: -78px; left: -47px; filter: none; }
+  .hero-left { padding-top: 104px; }
+  .hero-ctas { flex-wrap: wrap; }
+
+  .plan-track { grid-template-columns: 1fr; gap: 40px; }
+  .plan-track::before { top: 0; bottom: 0; left: 55px; right: auto; width: 2px; height: auto;
+    background: linear-gradient(180deg, var(--navy), var(--crimson) 55%, var(--gold)); }
+  .plan-grid { grid-template-columns: 1fr; }
+  .rhythm { grid-template-columns: 1fr 1fr; row-gap: 28px; }
+}
+@media (max-width: 600px) {
+  .plan-cta { padding: 28px 24px; }
+  .plan-cta p { font-size: 24px; }
+  .rhythm { grid-template-columns: 1fr; border-top: 0; border-left: 2px solid var(--navy); padding-left: 22px; }
+  .rhythm li { padding: 0 0 22px; }
+  .rhythm li::before { top: 6px; left: -30px; }
+  .pipe-name { font-size: 10px; }
+  .kpi-row { grid-template-columns: 1fr 1fr 1fr; gap: 6px; }
+  .wire-body { padding: 14px; }
+  .view-next { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary:hover, .btn-outline:hover { transform: none; }
+}
+
 </style>
 </head>
 <body>
@@ -1616,9 +1847,11 @@ html.js #home .hero-card { animation-delay: .50s; }
 <nav>
   <a href="#home" class="nav-logo" data-nav="home">Valerie <span>M.</span> Tesorero</a>
   <ul class="nav-links">
-    <li><a href="#home" data-nav="home">Home</a></li>
     <li><a href="#about" data-nav="about">About</a></li>
+    <li><a href="#plan" data-nav="plan">90-Day Plan</a></li>
     <li><a href="#experience" data-nav="experience">Experience</a></li>
+    <li><a href="#work" data-nav="work">Work</a></li>
+    <li><a href="#contact" data-nav="contact">Contact</a></li>
   </ul>
   <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navOverlay">
     <span></span><span></span><span></span>
@@ -1633,7 +1866,7 @@ html.js #home .hero-card { animation-delay: .50s; }
   <div class="hero-left">
     <div class="hero-badge">
       <span class="hero-badge-dot"></span>
-      <span>Available for new roles</span>
+      <span>Open to full-time &amp; part-time remote roles</span>
     </div>
     <h1>
       <em>Executive</em>
@@ -1642,7 +1875,7 @@ html.js #home .hero-card { animation-delay: .50s; }
     </h1>
     <p class="hero-tagline">Philippines &nbsp;·&nbsp; Remote &nbsp;·&nbsp; Global Clients</p>
     <p class="hero-intro">
-      I'm <strong>Valerie Tesorero</strong>. With over <strong>7 years</strong> of experience, I go far beyond traditional EA work. I've built systems from scratch, managed CRM pipelines, handled bookkeeping, led recruitment, created content, and kept multi-business operations running at the same time. I bring structure, judgment, and full ownership to every role I take.
+      I'm <strong>Valerie Tesorero</strong>. For <strong>7+ years</strong> I've supported founders and C-suite leaders across AU, UK, and US time zones: running calendars and inboxes, keeping CRMs clean, handling bookkeeping and recruitment, and building the SOPs and systems that keep a business moving. Three of my SOPs became onboarding material at past companies.
     </p>
     <div class="hero-stats">
       <div class="stat-item">
@@ -1655,12 +1888,12 @@ html.js #home .hero-card { animation-delay: .50s; }
       </div>
       <div class="stat-item">
         <div class="stat-num">30<span>+</span></div>
-        <div class="stat-label">Tools Mastered</div>
+        <div class="stat-label">Tools Used Professionally</div>
       </div>
     </div>
     <div class="hero-ctas">
-      <a href="#contact" class="btn-primary">Work With Me</a>
-      <a href="#experience" class="btn-outline">See My Work</a>
+      <a href="mailto:valerietesorero@gmail.com?subject=Intro%20call%20request" class="btn-primary">Book a 15-min Intro Call</a>
+      <a href="#work" class="btn-outline">See My Work</a>
     </div>
     <div class="hero-photo-wrap">
       <div class="hero-photo-glow"></div>
@@ -1683,10 +1916,6 @@ html.js #home .hero-card { animation-delay: .50s; }
         <li>Multi-business Coordination</li>
       </ul>
       <div class="hero-card-divider"></div>
-      <div class="availability">
-        <span class="avail-dot"></span>
-        <span>Open to full-time or part-time remote roles</span>
-      </div>
       <div class="hero-contact">
         <span class="contact-line">📧 valerietesorero@gmail.com</span>
         <span class="contact-line">📱 +63 919-713-8927</span>
@@ -1786,6 +2015,178 @@ html.js #home .hero-card { animation-delay: .50s; }
 
   </div>
 </section>
+
+<!-- ── 90-DAY PLAN ── -->
+<section id="plan">
+  <div class="container">
+    <div class="section-eyebrow">How I Can Help</div>
+    <div class="section-title">Your first 90 days<br><em>with me on board.</em></div>
+    <div class="section-divider"></div>
+
+    <p class="plan-lede fade-up">Bringing on an EA shouldn't add work to your plate. In month one I take over the day-to-day. By the end of month three you have documented processes, live trackers, and automations that keep running without anyone chasing them.</p>
+
+    <!-- 30 / 60 / 90 timeline -->
+    <ol class="plan-track fade-up">
+      <li class="plan-phase">
+        <div class="plan-node"><span>30</span></div>
+        <div class="plan-days">Days 1–30</div>
+        <h3 class="plan-phase-title">Learn and take over</h3>
+        <ul class="plan-list">
+          <li>Take over calendar, inbox triage, and follow-ups from week one</li>
+          <li>Audit recurring tasks, tools, and where time is being lost</li>
+          <li>Map how your key processes run today</li>
+          <li>Set up a shared task tracker and a weekly check-in</li>
+        </ul>
+        <div class="plan-deliverable"><strong>You get:</strong> a current-state process map and a ranked list of what to fix first.</div>
+      </li>
+      <li class="plan-phase">
+        <div class="plan-node"><span>60</span></div>
+        <div class="plan-days">Days 31–60</div>
+        <h3 class="plan-phase-title">Build and standardize</h3>
+        <ul class="plan-list">
+          <li>Write SOPs for the most frequent and most error-prone tasks</li>
+          <li>Clean up CRM records, shared drives, and file naming</li>
+          <li>Build trackers for projects, invoices, and hiring</li>
+          <li>Automate the first handoffs, like form to CRM to notification</li>
+        </ul>
+        <div class="plan-deliverable"><strong>You get:</strong> an SOP library, organized files, and live trackers your team can use.</div>
+      </li>
+      <li class="plan-phase">
+        <div class="plan-node"><span>90</span></div>
+        <div class="plan-days">Days 61–90</div>
+        <h3 class="plan-phase-title">Automate and hand over</h3>
+        <ul class="plan-list">
+          <li>Automate repeat workflows with Make or Zapier</li>
+          <li>Launch a weekly dashboard with the numbers you care about</li>
+          <li>Walk your team through the SOPs so nothing depends on one person</li>
+          <li>Run a 90-day review: what changed and what's next</li>
+        </ul>
+        <div class="plan-deliverable"><strong>You get:</strong> a weekly executive dashboard and a plan for the next quarter.</div>
+      </li>
+    </ol>
+
+    <!-- What you can hand off -->
+    <div class="plan-subhead fade-up">
+      <h3>What you can hand off to me</h3>
+      <p>Sketches of the kind of systems I build. Every business gets its own version.</p>
+    </div>
+
+    <div class="plan-grid">
+
+      <!-- Automation -->
+      <div class="plan-card fade-up">
+        <div class="wire-frame">
+          <div class="mockup-chrome"><div class="mockup-dot" style="background:#ec6a5e;"></div><div class="mockup-dot" style="background:#f4bd4f;"></div><div class="mockup-dot" style="background:#61c454;"></div><div class="mockup-chrome-title">automation — new lead</div></div>
+          <div class="wire-body">
+            <svg class="flow-svg" viewBox="0 0 360 176" role="img" aria-label="Diagram: a web form triggers a router that creates a CRM record, alerts the team, and sends a welcome email">
+              <defs><marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="f-arrow"/></marker></defs>
+              <path class="f-line" d="M96 88 H140" marker-end="url(#arw)"/>
+              <path class="f-line" d="M196 88 C220 88 216 30 244 30" marker-end="url(#arw)"/>
+              <path class="f-line" d="M196 88 H244" marker-end="url(#arw)"/>
+              <path class="f-line" d="M196 88 C220 88 216 146 244 146" marker-end="url(#arw)"/>
+              <rect x="8" y="66" width="88" height="44" rx="4" class="f-node"/>
+              <text x="52" y="85" class="f-txt">Web form</text><text x="52" y="100" class="f-sub">trigger</text>
+              <circle cx="168" cy="88" r="27" class="f-hub"/>
+              <text x="168" y="92" class="f-txt f-light">Router</text>
+              <rect x="246" y="10" width="106" height="40" rx="4" class="f-node"/>
+              <text x="299" y="35" class="f-txt">CRM record</text>
+              <rect x="246" y="68" width="106" height="40" rx="4" class="f-node f-accent"/>
+              <text x="299" y="93" class="f-txt">Team alert</text>
+              <rect x="246" y="126" width="106" height="40" rx="4" class="f-node"/>
+              <text x="299" y="151" class="f-txt">Welcome email</text>
+            </svg>
+          </div>
+        </div>
+        <h4 class="plan-card-title">Automate repetitive work</h4>
+        <p class="plan-card-desc">I connect the tools you already pay for so information moves on its own: new leads, orders, invoices, and reminders, without copy-pasting.</p>
+      </div>
+
+      <!-- SOP -->
+      <div class="plan-card fade-up">
+        <div class="wire-frame">
+          <div class="mockup-chrome"><div class="mockup-dot" style="background:#ec6a5e;"></div><div class="mockup-dot" style="background:#f4bd4f;"></div><div class="mockup-dot" style="background:#61c454;"></div><div class="mockup-chrome-title">SOP — client onboarding</div></div>
+          <div class="wire-body sop-wire">
+            <div class="sop-head">
+              <div class="sop-title">Client onboarding</div>
+              <div class="sop-meta"><span>Owner: EA</span><span>Runs: per new client</span><span>v1.2</span></div>
+            </div>
+            <div class="sop-step"><span class="sop-check done"></span><span class="sop-n">1</span><span class="wl w70"></span></div>
+            <div class="sop-step"><span class="sop-check done"></span><span class="sop-n">2</span><span class="wl w55"></span></div>
+            <div class="sop-step"><span class="sop-check"></span><span class="sop-n">3</span><span class="wl w80"></span></div>
+            <div class="sop-shot"><span>screenshot</span></div>
+            <div class="sop-step"><span class="sop-check"></span><span class="sop-n">4</span><span class="wl w45"></span></div>
+          </div>
+        </div>
+        <h4 class="plan-card-title">Write SOPs people actually follow</h4>
+        <p class="plan-card-desc">Step-by-step guides with screenshots, an owner, and a checklist, so tasks get done the same way every time and new hires ramp up faster.</p>
+      </div>
+
+      <!-- System pipeline -->
+      <div class="plan-card fade-up">
+        <div class="wire-frame">
+          <div class="mockup-chrome"><div class="mockup-dot" style="background:#ec6a5e;"></div><div class="mockup-dot" style="background:#f4bd4f;"></div><div class="mockup-dot" style="background:#61c454;"></div><div class="mockup-chrome-title">client pipeline — inquiry to paid</div></div>
+          <div class="wire-body">
+            <ol class="pipe">
+              <li class="pipe-stage is-done"><span class="pipe-dot"></span><span class="pipe-name">Inquiry</span><span class="pipe-count">4</span></li>
+              <li class="pipe-stage is-done"><span class="pipe-dot"></span><span class="pipe-name">Proposal</span><span class="pipe-count">3</span></li>
+              <li class="pipe-stage is-now"><span class="pipe-dot"></span><span class="pipe-name">Contract</span><span class="pipe-count">2</span></li>
+              <li class="pipe-stage"><span class="pipe-dot"></span><span class="pipe-name">Onboarding</span><span class="pipe-count">2</span></li>
+              <li class="pipe-stage"><span class="pipe-dot"></span><span class="pipe-name">Invoiced</span><span class="pipe-count">5</span></li>
+            </ol>
+            <div class="pipe-rows">
+              <div class="pipe-row"><span class="wl w40"></span><span class="pill p-gold">Waiting on signature</span></div>
+              <div class="pipe-row"><span class="wl w55"></span><span class="pill p-green">On track</span></div>
+            </div>
+          </div>
+        </div>
+        <h4 class="plan-card-title">Build systems that connect</h4>
+        <p class="plan-card-desc">One clear flow from first inquiry to paid invoice, with stages and owners, so nothing sits forgotten in someone's inbox.</p>
+      </div>
+
+      <!-- Tracker / dashboard -->
+      <div class="plan-card fade-up">
+        <div class="wire-frame">
+          <div class="mockup-chrome"><div class="mockup-dot" style="background:#ec6a5e;"></div><div class="mockup-dot" style="background:#f4bd4f;"></div><div class="mockup-dot" style="background:#61c454;"></div><div class="mockup-chrome-title">weekly dashboard</div></div>
+          <div class="wire-body">
+            <div class="kpi-row">
+              <div class="kpi"><span class="kpi-label">Open tasks</span><span class="kpi-bar"><i style="width:62%"></i></span></div>
+              <div class="kpi"><span class="kpi-label">Invoices due</span><span class="kpi-bar"><i style="width:38%"></i></span></div>
+              <div class="kpi"><span class="kpi-label">Hiring</span><span class="kpi-bar"><i style="width:80%"></i></span></div>
+            </div>
+            <div class="mini-chart" aria-hidden="true">
+              <i style="height:40%"></i><i style="height:55%"></i><i style="height:48%"></i><i style="height:70%"></i><i style="height:62%"></i><i class="hi" style="height:86%"></i>
+            </div>
+            <div class="trk-row"><span class="wl w50"></span><span class="pill p-green">Done</span></div>
+            <div class="trk-row"><span class="wl w35"></span><span class="pill p-red">Needs you</span></div>
+          </div>
+        </div>
+        <h4 class="plan-card-title">Trackers and dashboards</h4>
+        <p class="plan-card-desc">Shared trackers for tasks, invoices, and hiring, plus a weekly view that shows what's on track and what needs your decision.</p>
+      </div>
+
+    </div>
+
+    <!-- Weekly rhythm -->
+    <div class="plan-subhead fade-up">
+      <h3>What a normal week looks like</h3>
+    </div>
+    <ol class="rhythm fade-up">
+      <li><span class="r-when">Monday</span><span class="r-what">Your priorities for the week, ready before you start</span></li>
+      <li><span class="r-when">Every day</span><span class="r-what">Inbox and calendar handled, urgent items flagged early</span></li>
+      <li><span class="r-when">Friday</span><span class="r-what">A recap of what's done, what's pending, and what needs a decision</span></li>
+      <li><span class="r-when">Every month</span><span class="r-what">At least one process documented or automated</span></li>
+    </ol>
+
+    <div class="plan-cta fade-up">
+      <p>Want this plan shaped around your business?</p>
+      <div class="plan-cta-btns">
+        <a href="mailto:valerietesorero@gmail.com?subject=Intro%20call%20request" class="btn-primary">Book a 15-min Intro Call</a>
+        <a href="#work" class="btn-outline btn-outline-dark">See Sample Work</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- ── INDUSTRIES ── -->
 <section id="industries">
@@ -2397,7 +2798,7 @@ html.js #home .hero-card { animation-delay: .50s; }
               </div>
               <div class="inbox-rows">
                 <div class="inbox-row unread">
-                  <div class="inbox-sender"><span class="inbox-unread-dot"></span>Danielle R.</div>
+                  <div class="inbox-sender"><span class="inbox-unread-dot"></span>Maria L.</div>
                   <div class="inbox-subject">Q3 contract draft<span class="preview">— ready for your review before EOD...</span></div>
                   <div class="inbox-label" style="background:rgba(212,32,47,0.12);color:#b71e2d;">Urgent</div>
                 </div>
@@ -2407,7 +2808,7 @@ html.js #home .hero-card { animation-delay: .50s; }
                   <div class="inbox-label" style="background:rgba(15,22,38,0.08);color:var(--navy);">Invoices</div>
                 </div>
                 <div class="inbox-row unread">
-                  <div class="inbox-sender"><span class="inbox-unread-dot"></span>Ryan T.</div>
+                  <div class="inbox-sender"><span class="inbox-unread-dot"></span>James K.</div>
                   <div class="inbox-subject">Site visit notes<span class="preview">— attaching photos from this morning's...</span></div>
                   <div class="inbox-label" style="background:rgba(201,168,76,0.18);color:#a3863a;">Clients</div>
                 </div>
@@ -2417,7 +2818,7 @@ html.js #home .hero-card { animation-delay: .50s; }
                   <div class="inbox-label" style="background:rgba(123,168,136,0.18);color:#3f6b4d;">Internal</div>
                 </div>
                 <div class="inbox-row unread">
-                  <div class="inbox-sender"><span class="inbox-unread-dot"></span>Good Eatz Team</div>
+                  <div class="inbox-sender"><span class="inbox-unread-dot"></span>Ops Team</div>
                   <div class="inbox-subject">Stripe payout delay<span class="preview">— flagging before it affects tomorrow's...</span></div>
                   <div class="inbox-label" style="background:rgba(212,32,47,0.12);color:#b71e2d;">Urgent</div>
                 </div>
@@ -3439,6 +3840,10 @@ html.js #home .hero-card { animation-delay: .50s; }
         I've spent 7+ years building the skills, judgment, and operational range that businesses need in a long-term partner, not just a task-taker. If you're looking for someone who can <strong>think, build, and execute</strong> across multiple areas of your business, I'm ready. I show up on day one with full ownership, and I stay as long as the work matters.
       </p>
 
+      <div class="contact-cta">
+        <a href="mailto:valerietesorero@gmail.com?subject=Intro%20call%20request" class="btn-primary">Book a 15-min Intro Call</a>
+      </div>
+
       <div class="contact-links">
         <a href="mailto:valerietesorero@gmail.com" class="contact-link">
           <span class="contact-link-icon">📧</span>
@@ -3448,16 +3853,12 @@ html.js #home .hero-card { animation-delay: .50s; }
           <span class="contact-link-icon">📱</span>
           +63 919-713-8927
         </a>
-        <a href="https://www.linkedin.com/in/valerie-tesorero" target="_blank" class="contact-link">
+        <a href="https://www.linkedin.com/in/valerie-tesorero" target="_blank" rel="noopener" class="contact-link">
           <span class="contact-link-icon">💼</span>
           LinkedIn Profile
         </a>
       </div>
 
-      <div class="closing-quote">
-        <blockquote>"Every operation I've been part of has run better because I was in it. I don't just fill a role. I carry it."</blockquote>
-        <cite>— Valerie M. Tesorero · Senior Executive Virtual Assistant</cite>
-      </div>
     </div>
   </div>
 </section>
@@ -3514,35 +3915,6 @@ document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     titleObs.observe(el);
   });
 
-  // stat count-up
-  function countUp(el) {
-    var tn = el.childNodes[0];
-    if (!tn) return;
-    if (!el.dataset.target) el.dataset.target = (el.textContent || '').replace(/\D/g, '');
-    var target = parseInt(el.dataset.target, 10);
-    if (isNaN(target)) return;
-    if (el.dataset.counting === '1') return;      // an animation is already running
-    if (el.dataset.done === '1') { tn.textContent = target; return; }
-    if (reduce) { tn.textContent = target; el.dataset.done = '1'; return; }
-    el.dataset.counting = '1';
-    var start = null, dur = 1400;
-    function step(ts) {
-      if (!start) start = ts;
-      var p = Math.min((ts - start) / dur, 1);
-      var eased = 1 - Math.pow(1 - p, 3);
-      tn.textContent = Math.round(eased * target);
-      if (p < 1) { requestAnimationFrame(step); }
-      else { el.dataset.counting = '0'; el.dataset.done = '1'; }
-    }
-    requestAnimationFrame(step);
-  }
-  var statObs = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-      if (e.isIntersecting) { countUp(e.target); statObs.unobserve(e.target); }
-    });
-  }, { threshold: 0.6 });
-  document.querySelectorAll('.stat-num').forEach(function (el) { statObs.observe(el); });
-
   // scroll progress ledger rule
   var bar = document.createElement('div');
   bar.className = 'scroll-progress';
@@ -3554,40 +3926,6 @@ document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   window.addEventListener('scroll', prog, { passive: true });
   prog();
 
-  if (reduce) return; // skip pointer-driven flourishes entirely
-
-  // magnetic buttons
-  document.querySelectorAll('.btn-primary, .btn-outline').forEach(function (btn) {
-    btn.addEventListener('mousemove', function (e) {
-      var r = btn.getBoundingClientRect();
-      var x = e.clientX - r.left - r.width / 2;
-      var y = e.clientY - r.top - r.height / 2;
-      btn.style.transform = 'translate(' + x * 0.25 + 'px,' + y * 0.35 + 'px)';
-    });
-    btn.addEventListener('mouseleave', function () { btn.style.transform = ''; });
-  });
-
-  // subtle 3D tilt on certificate badges
-  document.querySelectorAll('.cert-badge').forEach(function (card) {
-    card.addEventListener('mousemove', function (e) {
-      var r = card.getBoundingClientRect();
-      var px = (e.clientX - r.left) / r.width - 0.5;
-      var py = (e.clientY - r.top) / r.height - 0.5;
-      card.style.transform = 'perspective(700px) rotateY(' + px * 10 + 'deg) rotateX(' + (-py * 10) + 'deg)';
-    });
-    card.addEventListener('mouseleave', function () { card.style.transform = ''; });
-  });
-
-  // gentle pointer-follow tilt + lift on work sample cards (lighter angle for wide cards)
-  document.querySelectorAll('.work-card').forEach(function (card) {
-    card.addEventListener('mousemove', function (e) {
-      var r = card.getBoundingClientRect();
-      var px = (e.clientX - r.left) / r.width - 0.5;
-      var py = (e.clientY - r.top) / r.height - 0.5;
-      card.style.transform = 'perspective(1100px) translateY(-4px) rotateY(' + px * 3.5 + 'deg) rotateX(' + (-py * 3.5) + 'deg)';
-    });
-    card.addEventListener('mouseleave', function () { card.style.transform = ''; });
-  });
 })();
 </script>
 <div class="nav-overlay" id="navOverlay" aria-hidden="true" role="dialog" aria-label="Site menu">
@@ -3596,14 +3934,15 @@ document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     <div class="nav-overlay-links">
       <a href="#home" data-nav="home"><span class="ov-num">01</span> Home</a>
       <a href="#about" data-nav="about"><span class="ov-num">02</span> About</a>
-      <a href="#experience" data-nav="experience"><span class="ov-num">03</span> Experience</a>
-      <a href="#industries" data-nav="industries"><span class="ov-num">04</span> Industries</a>
-      <a href="#skills" data-nav="skills"><span class="ov-num">05</span> Skills</a>
-      <a href="#certificates" data-nav="certificates"><span class="ov-num">06</span> Certificates</a>
-      <a href="#work" data-nav="work"><span class="ov-num">07</span> Work Samples</a>
-      <a href="#tools" data-nav="tools"><span class="ov-num">08</span> Tools</a>
-      <a href="#testimonials" data-nav="testimonials"><span class="ov-num">09</span> Testimonials</a>
-      <a href="#contact" data-nav="contact"><span class="ov-num">10</span> Contact</a>
+      <a href="#plan" data-nav="plan"><span class="ov-num">03</span> 90-Day Plan</a>
+      <a href="#experience" data-nav="experience"><span class="ov-num">04</span> Experience</a>
+      <a href="#industries" data-nav="industries"><span class="ov-num">05</span> Industries</a>
+      <a href="#skills" data-nav="skills"><span class="ov-num">06</span> Skills</a>
+      <a href="#certificates" data-nav="certificates"><span class="ov-num">07</span> Certificates</a>
+      <a href="#work" data-nav="work"><span class="ov-num">08</span> Work Samples</a>
+      <a href="#tools" data-nav="tools"><span class="ov-num">09</span> Tools</a>
+      <a href="#testimonials" data-nav="testimonials"><span class="ov-num">10</span> Testimonials</a>
+      <a href="#contact" data-nav="contact"><span class="ov-num">11</span> Contact</a>
     </div>
     <div class="nav-overlay-foot">Valerie M. Tesorero — Executive VA &amp; Operations Partner</div>
   </div>
@@ -3621,7 +3960,7 @@ document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   var burger = document.getElementById('navBurger');
   var overlay = document.getElementById('navOverlay');
 
-  var labels = { home:'Home', about:'About', experience:'Experience', industries:'Industries',
+  var labels = { home:'Home', about:'About', plan:'Your First 90 Days', experience:'Experience', industries:'Industries',
     skills:'Skills', certificates:'Certificates', work:'Work Samples', tools:'Tools',
     testimonials:'Testimonials', contact:'Contact' };
 
@@ -3649,6 +3988,21 @@ document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
     view.querySelectorAll('.section-divider').forEach(function (el) { el.classList.add('divider-in'); });
     view.querySelectorAll('.stat-num').forEach(function (el) { countUp(el); });
   }
+
+  // "Next" link at the bottom of every view, following the menu order
+  var order = ['home','about','plan','experience','industries','skills','certificates','work','tools','testimonials','contact'];
+  var darkViews = { industries:1, tools:1, contact:1 };
+  order.forEach(function (id, i) {
+    var v = document.getElementById(id), nextId = order[i + 1];
+    if (!v || id === 'home' || !nextId || !document.getElementById(nextId)) return;
+    var wrap = document.createElement('div');
+    wrap.className = 'view-pager' + (darkViews[id] ? ' on-dark' : '');
+    wrap.innerHTML = '<div class="container"><a class="view-next" href="#' + nextId + '" data-nav-next="' + nextId + '">' +
+      '<span class="vn-label">Next</span><span class="vn-title">' + labels[nextId] + '</span>' +
+      '<svg class="vn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a></div>';
+    var inner = v.querySelector(':scope > .container');
+    (id === 'contact' || !inner ? v : v).appendChild(wrap);
+  });
 
   function setActive(id) {
     document.querySelectorAll('[data-nav]').forEach(function (a) {

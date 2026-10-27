@@ -1873,6 +1873,13 @@ footer {background:#eee7f0!important;color:#655764!important;border-top:1px soli
 footer p,footer span {color:#655764!important;}
 .contact-title em,.contact-inner em,.section-eyebrow,.nav-logo span {color:#70445f;}
 .cert-shield-top .cert-name,.cert-rounded-top .cert-name {color:white;}
+
+.hero-capabilities {margin-top:40px;}
+.hero-capabilities .hero-card {max-width:100%;padding:30px;}
+.hero-right {align-items:flex-start;padding-top:170px;}
+.hero-video-wrap {width:100%;max-width:640px;border:1px solid #d8cad7;border-radius:12px;overflow:hidden;background:#eee;box-shadow:0 20px 60px #51344814;}
+.hero-video-wrap video {display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;}
+@media(max-width:900px){.hero-right{padding-top:30px;padding-bottom:40px;}}
 </style>
 </head>
 <body>
@@ -1930,10 +1937,7 @@ footer p,footer span {color:#655764!important;}
       <a href="mailto:valerietesorero@gmail.com?subject=Intro%20call%20request" class="btn-primary">Book a 15-min Intro Call</a>
       <a href="#work" class="btn-outline">See My Work</a>
     </div>
-  </div>
-
-  <div class="hero-right">
-    <div class="hero-card">
+<div class="hero-capabilities">    <div class="hero-card">
       <div class="hero-card-title">What I bring to the table</div>
       <ul class="role-list">
         <li>Executive &amp; C-Suite Support</li>
@@ -1952,8 +1956,10 @@ footer p,footer span {color:#655764!important;}
         <span class="contact-line">📱 +63 919-713-8927</span>
         <span class="contact-line">🌍 Philippines (PHT / UTC+8)</span>
       </div>
-    </div>
+    </div></div>
   </div>
+
+  <div class="hero-right"><div class="hero-video-wrap"><video id="hero-intro-video" autoplay muted loop playsinline controls preload="metadata" poster="assets/intro-poster.jpg" aria-label="Valerie Tesorero portfolio introduction video"><source src="assets/intro-video.mp4" type="video/mp4">Your browser does not support embedded video. <a href="assets/intro-video.mp4">Open the video</a>.</video></div></div>
 </section>
 
 <!-- ── ABOUT ── -->
